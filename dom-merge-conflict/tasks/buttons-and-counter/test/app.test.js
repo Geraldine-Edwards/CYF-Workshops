@@ -17,13 +17,13 @@ describe("button and counter", () => {
 
   test("contains description paragraph with mention of 'increment' in header", () => {
     expect(
-      container.querySelector("header").querySelector("p")
-    ).toHaveTextContent(/increment/i);
-  });
+      container.querySelector("header").querySelector("#inc")
+    ).toHaveTextContent(/Increment/i);
+  });//true
 
   test("counter starts at 0", () => {
     expect(getByTestId(container, "counter")).toHaveTextContent(/^0$/);
-  });
+  });//true
 
   test("pressing Increment increases the counter", () => {
     const button = getByRole(container, "button", {
@@ -33,9 +33,9 @@ describe("button and counter", () => {
     button.click();
 
     expect(getByTestId(container, "counter")).toHaveTextContent(/^2$/);
-  });
+  });//true
 
-  describe.skip("decrement button", () => {
+  describe("decrement button", () => {
     test("pressing Decrement decreases the counter", () => {
       const button = getByRole(container, "button", {
         name: "Decrement",
@@ -49,7 +49,7 @@ describe("button and counter", () => {
 
     test("contains description paragraph with mention of 'decrement' in header", () => {
       expect(
-        container.querySelector("header").querySelector("p")
+        container.querySelector("header").querySelector("#dec")
       ).toHaveTextContent(/decrement/i);
     });
   });
